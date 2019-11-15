@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 8 Metrics | Home Credit Default Risk - Final Report</title>
+  <meta name="description" content="Chapter 8 Metrics | Home Credit Default Risk - Final Report" />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 8 Metrics | Home Credit Default Risk - Final Report" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Chapter 8 Metrics | Home Credit Default Risk - Final Report" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 8 Metrics | Home Credit Default Risk - Final Report" />
+  
+  <meta name="twitter:description" content="Chapter 8 Metrics | Home Credit Default Risk - Final Report" />
+  
+
+<meta name="author" content="Data Wizard Team - Ibrokhim , Kabita, Jiamin, Ritika, Namrata" />
+
+
+<meta name="date" content="2019-11-10" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="methodology.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About Home Credit</a></li>
+<li class="chapter" data-level="2" data-path="background-research.html"><a href="background-research.html"><i class="fa fa-check"></i><b>2</b> Background Research</a></li>
+<li class="chapter" data-level="3" data-path="objective.html"><a href="objective.html"><i class="fa fa-check"></i><b>3</b> Objective</a></li>
+<li class="chapter" data-level="4" data-path="data-overview.html"><a href="data-overview.html"><i class="fa fa-check"></i><b>4</b> Data Overview</a></li>
+<li class="chapter" data-level="5" data-path="exploration-of-data.html"><a href="exploration-of-data.html"><i class="fa fa-check"></i><b>5</b> Exploration of Data</a><ul>
+<li class="chapter" data-level="5.1" data-path="exploration-of-data.html"><a href="exploration-of-data.html#target"><i class="fa fa-check"></i><b>5.1</b> Target</a></li>
+<li class="chapter" data-level="5.2" data-path="exploration-of-data.html"><a href="exploration-of-data.html#independent-variables"><i class="fa fa-check"></i><b>5.2</b> Independent Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="challenges.html"><a href="challenges.html"><i class="fa fa-check"></i><b>6</b> Challenges:</a><ul>
+<li class="chapter" data-level="6.1" data-path="challenges.html"><a href="challenges.html#too-many-attributes"><i class="fa fa-check"></i><b>6.1</b> Too many attributes:</a></li>
+<li class="chapter" data-level="6.2" data-path="challenges.html"><a href="challenges.html#dealing-with-missing-values"><i class="fa fa-check"></i><b>6.2</b> Dealing with Missing values:</a></li>
+<li class="chapter" data-level="6.3" data-path="challenges.html"><a href="challenges.html#imbalanced-data"><i class="fa fa-check"></i><b>6.3</b> Imbalanced Data:</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="methodology.html"><a href="methodology.html"><i class="fa fa-check"></i><b>7</b> Methodology:</a><ul>
+<li class="chapter" data-level="7.1" data-path="methodology.html"><a href="methodology.html#supervised"><i class="fa fa-check"></i><b>7.1</b> Supervised:</a></li>
+<li class="chapter" data-level="7.2" data-path="methodology.html"><a href="methodology.html#classification"><i class="fa fa-check"></i><b>7.2</b> Classification:</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="metrics.html"><a href="metrics.html"><i class="fa fa-check"></i><b>8</b> Metrics</a><ul>
+<li class="chapter" data-level="8.1" data-path="metrics.html"><a href="metrics.html#roc"><i class="fa fa-check"></i><b>8.1</b> ROC</a></li>
+<li class="chapter" data-level="8.2" data-path="metrics.html"><a href="metrics.html#confusion-matrix"><i class="fa fa-check"></i><b>8.2</b> Confusion Matrix</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>9</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Home Credit Default Risk - Final Report</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="metrics" class="section level1">
+<h1><span class="header-section-number">Chapter 8</span> Metrics</h1>
+<div id="roc" class="section level2">
+<h2><span class="header-section-number">8.1</span> ROC</h2>
+<p>The most common classification metric is Receiver Operating Frequency Curve commonly known as ROC Curve. When data is highly imbalanced, accuracy is not the best measure of performance. Area Under Curve (AUC) of ROC needs to be taken into consideration. As more area (AUC) is better perfection, we want to achieve as high AUC as possible for our model.</p>
+</div>
+<div id="confusion-matrix" class="section level2">
+<h2><span class="header-section-number">8.2</span> Confusion Matrix</h2>
+<p>Another validation measure of our classification model can be confusion matrix. Confusion matrix represents four values with observations that are positive and labeled as positive (True Positives TP), positive but recorded as negative (FN), Negative but recorded as positive (FP) and Negative recoded as negative (TN). In our case, customers who are not able to repay loan (actual 1) but marked as 0 (able to repay, not default) is very sensitive and raises risk factor for Home Credit. In this case False Negative is the parameter, we should closely monitor. We need to tune our model sufficiently to minimize False negatives.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="methodology.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/07-metrics.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["home-credit.pdf", "home-credit.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

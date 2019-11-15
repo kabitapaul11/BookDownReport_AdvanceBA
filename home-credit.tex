@@ -1,0 +1,211 @@
+\documentclass[]{book}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={Home Credit Default Risk - Final Report},
+            pdfauthor={Data Wizard Team - Ibrokhim , Kabita, Jiamin, Ritika, Namrata},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{natbib}
+\bibliographystyle{apalike}
+\usepackage{longtable,booktabs}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\providecommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+
+  \title{Home Credit Default Risk - Final Report}
+    \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+    \author{Data Wizard Team - Ibrokhim , Kabita, Jiamin, Ritika, Namrata}
+    \preauthor{\centering\large\emph}
+  \postauthor{\par}
+      \predate{\centering\large\emph}
+  \postdate{\par}
+    \date{2019-11-10}
+
+\usepackage{booktabs}
+\usepackage{amsthm}
+\makeatletter
+\def\thm@space@setup{%
+  \thm@preskip=8pt plus 2pt minus 4pt
+  \thm@postskip=\thm@preskip
+}
+\makeatother
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+\hypertarget{about-home-credit}{%
+\chapter{About Home Credit}\label{about-home-credit}}
+
+In 2017, the World Bank reported a global population of 1.7 billion unbanked adults, or those who do not own any form of bank account from any financial institution, with a majority residing in developing economies like China and India. Universally, this population has become an easy target for many institutions that tend to charge for financial services at a higher fee. To address this issue, Home Credit is dedicated to creating positive loan experiences for the unbanked around the world and promote financial inclusion. In this project, we will use the available data from Home Credit to explore various factors related to repayment abilities to ensure available loaning options to the right clients. Our goal is to find out what are major factors directly related to repayment ability of a customer.
+
+\hypertarget{background-research}{%
+\chapter{Background Research}\label{background-research}}
+
+In an overview, the word ``unbanked'' defines people who do not own any form of bank account, while ``underbanked'' characterizes those who have a bank account but do not have access to mainstream bank services such as credit and loans. In a survey conducted by the Federal Deposit Insurance Corporation in 2017, 53\% of the unbanked population in the US reported insufficient financial means to maintain a bank account, while 30\% cited ``Don't trust banks''. The lack of credit score results in inability to access common bank services such as loans and credit cards. As a result, many resorts to more expensive options when seeking financial services as simple as cashing out a check. When caught in a financial emergency, people are forced to take out at unaffordable high interest rates and therefore the cycle worsens.
+In expanding financial inclusion, Home Credit aims to create lines of credit specifically for the unbanked population. The main company objective is to not only build trust with clients, but also have good risk management strategies. To minimize risks of credit default, our objective is to create an algorithm on loan application approval predicting potential of repayment. However, the main challenge to this task is that 70\% of Home Credit clients are first-time borrowers. As a result, there is limited record on client credit history, which serves as an important indicator in conventional credit underwriting. In a finance summit, Home Credit has stated that the key to risk management in this client pool rests in two aspects. One is client's repayment capability and understanding how much of an instalment he or she can afford. The other is to identify fraudsters who intend to loan with no intentions of repaying.
+
+\hypertarget{objective}{%
+\chapter{Objective}\label{objective}}
+
+In broader sense, our objective of this project is to come up with machine learning models to predict clients loan repayment capability. In order to build predictive models, we are going to utilize that dataset available in Kaggle: \url{https://www.kaggle.com/c/home-credit-default-risk/data}
+Home credit is using several machine learning algorithms to predict their clients' repayment capability. They also try to build repayment plan such that their clients achieve their financial goal with ease. Unlike other financial institutions that rely on credit history to check applicant loan repayment ability, home credit targets customers who has very limited or no previous credit history available. Because home credit applicants have very little (or not at all) previous loan history available, we will try to incorporate as many datasets as possible provided by Kaggle for this project.
+
+\hypertarget{data-overview}{%
+\chapter{Data Overview}\label{data-overview}}
+
+There are mainly seven tables among which Application (train and test) is the master table. The entities of these dataset are deidentified (replaced with ID) for security reasons. The application table contains records for each loan application with Home Credit. Other tables contain records of clients' previous loan application with Home credit, other credits which are reported to credit bureau and instalment payment records.
+In below table, we have mentioned some basic overview of data tables that are available to us.
+
+\includegraphics{Images/table.png}
+
+\hypertarget{exploration-of-data}{%
+\chapter{Exploration of Data}\label{exploration-of-data}}
+
+In order to better understand the risk of default, we want to use the TARGET variable from the application\_train dataset and compare it various predictors. Here, a value of 0 represents a repaid loan, while a value of 1 represents a default loan. Before we proceed with modelling, we want to first understand the distribution of the target variable, as shown below:
+
+\hypertarget{target}{%
+\section{Target}\label{target}}
+
+As we can see, class 0 is significantly larger than category 1. This means only few loans were not repaid compared to loans that are repaid. When classes are imbalanced, machine learning models are biased towards category with higher number of observations. The classifier will achieve a high accuracy based on the majority class. This doesn't make a good predictive model because the minority class will simply be ignored. To overcome this problem, we plan to apply oversampling on class 1 to achieve a balanced dataset.
+
+Another important point to note is that the application\_test dataset does not contain a target variable. When we are ready to run our model, we need to split the application\_train dataset into training and testing subsets to train our classifier and evaluate the predicted outcomes with the actual outcomes.
+
+\includegraphics{Images/target_dist.png}
+
+\hypertarget{independent-variables}{%
+\section{Independent Variables}\label{independent-variables}}
+
+\hypertarget{challenges}{%
+\chapter{Challenges:}\label{challenges}}
+
+\hypertarget{too-many-attributes}{%
+\section{Too many attributes:}\label{too-many-attributes}}
+
+The application table consists of 122 variables. We need to carefully choose variables that are needed for analysis removing less important variables in order to avoid noise while not losing valuable information. In order to avoid this problem, we can do feature selection.
+
+\hypertarget{dealing-with-missing-values}{%
+\section{Dealing with Missing values:}\label{dealing-with-missing-values}}
+
+There are high percentage of missing values for few attributes. There are many ways to handle missing values. Most common methods are dropping records with missing values (when percentage of missing value is low). One other method is to discard columns with high number of missing values. Missing values can be handled by Imputation techniques as well. In imputation, missing values for categorical variables are replaced by either most frequently used category or a considered as third category. At this earlier stage, we will prefer imputation over dropping in order to avoid loss of information.
+
+\hypertarget{imbalanced-data}{%
+\section{Imbalanced Data:}\label{imbalanced-data}}
+
+The application dataset has less than 10\% values for TARGET category 1. The rest of the dataset has TARGET 0. Machine learning algorithms are highly biased with the categories with high number of observations. To overcome this situation, we want to use sampling techniques.
+
+\hypertarget{methodology}{%
+\chapter{Methodology:}\label{methodology}}
+
+The application train table has TARGET column, which is missing in application test. We need to predict TARGET column (dependent variable) with the help of machine learning. This is direct case of supervised classification problem.
+
+\hypertarget{supervised}{%
+\section{Supervised:}\label{supervised}}
+
+Some observations are labeled with TARGET category 0 or 1. We need to predict the TARGET column based on the predictor variables. Model is open for continuous improvement with the help of validation techniques.
+
+\hypertarget{classification}{%
+\section{Classification:}\label{classification}}
+
+The dependent variable (TARGET) is categorical with two levels o and 1. Through model, entire population of dataset will be labeled as either class 0 or class 1 based on predictor variables.
+
+\hypertarget{metrics}{%
+\chapter{Metrics}\label{metrics}}
+
+\hypertarget{roc}{%
+\section{ROC}\label{roc}}
+
+The most common classification metric is Receiver Operating Frequency Curve commonly known as ROC Curve. When data is highly imbalanced, accuracy is not the best measure of performance. Area Under Curve (AUC) of ROC needs to be taken into consideration. As more area (AUC) is better perfection, we want to achieve as high AUC as possible for our model.
+
+\hypertarget{confusion-matrix}{%
+\section{Confusion Matrix}\label{confusion-matrix}}
+
+Another validation measure of our classification model can be confusion matrix. Confusion matrix represents four values with observations that are positive and labeled as positive (True Positives TP), positive but recorded as negative (FN), Negative but recorded as positive (FP) and Negative recoded as negative (TN). In our case, customers who are not able to repay loan (actual 1) but marked as 0 (able to repay, not default) is very sensitive and raises risk factor for Home Credit. In this case False Negative is the parameter, we should closely monitor. We need to tune our model sufficiently to minimize False negatives.
+
+\hypertarget{references}{%
+\chapter{References}\label{references}}
+
+\begin{itemize}
+\item
+  Apaam, Gerald, et. al ``FDIC National Survey of Unbanked and Underbanked Households: Executive Summary''. Federal Deposit Insurance Corporation. 20 Sep.~2019. \url{https://www.fdic.gov/householdsurvey/2017/2017execsumm.pdf}
+\item
+  Demirguc-Kunt, Asli, et. al.~``Measuring Financial Inclusion and the Fintech Revolution''. The Global Findex Database. 20. Sep.~2019. \url{https://globalfindex.worldbank.org/sites/globalfindex/files/2018-04/2017\%20Findex\%20full\%20report_0.pdf}
+\item
+  Home Credit Default Risk: \url{https://www.kaggle.com/c/home-credit-default-risk/data}
+\item
+  ``Serving the Unbanked Population: a speech by Home Credit China CEO Ondrej Frydrych to the 21st Century Finance Summit of Asia''. Home Credit. 10 Jan.~2017. \url{http://www.homecredit.net/media/press-releases/2017/170110-ondrej-frydrych-serving-the-unbanked-population.aspx}
+\end{itemize}
+
+\bibliography{book.bib,packages.bib}
+
+
+\end{document}

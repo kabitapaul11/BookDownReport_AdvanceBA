@@ -1,0 +1,10 @@
+# Metrics
+
+## ROC 
+
+The most common classification metric is Receiver Operating Frequency Curve commonly known as ROC Curve. When data is highly imbalanced, accuracy is not the best measure of performance. Area Under Curve (AUC) of ROC needs to be taken into consideration. As more area (AUC) is better perfection, we want to achieve as high AUC as possible for our model.
+
+## Confusion Matrix 
+
+Another validation measure of our classification model can be confusion matrix. Confusion matrix represents four values with observations that are positive and labeled as positive (True Positives TP), positive but recorded as negative (FN), Negative but recorded as positive (FP) and Negative recoded as negative (TN). In our case, customers who are not able to repay loan (actual 1) but marked as 0 (able to repay, not default) is very sensitive and raises risk factor for Home Credit. In this case False Negative is the parameter, we should closely monitor. We need to tune our model sufficiently to minimize False negatives.
+

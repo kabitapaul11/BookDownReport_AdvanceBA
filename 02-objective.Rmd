@@ -1,0 +1,10 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+# Objective
+
+In broader sense, our objective of this project is to come up with machine learning models to predict clients loan repayment capability.  In order to build predictive models, we are going to utilize that dataset available in Kaggle:  https://www.kaggle.com/c/home-credit-default-risk/data
+Home credit is using several machine learning algorithms to predict their clients’ repayment capability. They also try to build repayment plan such that their clients achieve their financial goal with ease. Unlike other financial institutions that rely on credit history to check applicant loan repayment ability, home credit targets customers who has very limited or no previous credit history available. Because home credit applicants have very little (or not at all) previous loan history available, we will try to incorporate as many datasets as possible provided by Kaggle for this project.
+

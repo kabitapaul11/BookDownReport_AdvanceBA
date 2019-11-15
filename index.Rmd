@@ -1,0 +1,42 @@
+--- 
+title: "Home Credit Default Risk - Final Report"
+author: Team Members
+
+  - Ibrokhim Sadikov
+
+  - Kabita Paul
+
+  - Namrata Tathe
+
+  - Rittika Mitra
+
+  - Jiamin Lei
+
+
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output:
+  bookdown::html_book:
+    css: toc.css
+  bookdown::gitbook:
+    lib_dir: assets
+    split_by: section
+    config:
+      toolbar:
+        position: static
+  bookdown::pdf_book:
+    keep_tex: yes
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+github-repo: rstudio/bookdown-demo
+description: "Home Credit Default Risk - Final Report"
+---
+
+
+
+# About Home Credit
+
+
+In 2017, the World Bank reported a global population of 1.7 billion unbanked adults, or those who do not own any form of bank account from any financial institution, with a majority residing in developing economies like China and India.  Universally, this population has become an easy target for many institutions that tend to charge for financial services at a higher fee. To address this issue, Home Credit is dedicated to creating positive loan experiences for the unbanked around the world and promote financial inclusion. In this project, we will use the available data from Home Credit to explore various factors related to repayment abilities to ensure available loaning options to the right clients. Our goal is to find out what are major factors directly related to repayment ability of a customer.

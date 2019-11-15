@@ -1,0 +1,15 @@
+# Exploration of Data
+
+In order to better understand the risk of default, we want to use the TARGET variable from the application_train dataset and compare it various predictors. Here, a value of 0 represents a repaid loan, while a value of 1 represents a default loan. Before we proceed with modelling, we want to first understand the distribution of the target variable, as shown below:
+
+## Target
+
+As we can see, class 0 is significantly larger than category 1. This means only few loans were not repaid compared to loans that are repaid. When classes are imbalanced, machine learning models are biased towards category with higher number of observations. The classifier will achieve a high accuracy based on the majority class. This doesn’t make a good predictive model because the minority class will simply be ignored. To overcome this problem, we plan to apply oversampling on class 1 to achieve a balanced dataset. 
+
+Another important point to note is that the application_test dataset does not contain a target variable. When we are ready to run our model, we need to split the application_train dataset into training and testing subsets to train our classifier and evaluate the predicted outcomes with the actual outcomes.
+
+
+![](Images/target_dist.png)
+
+
+## Independent Variables

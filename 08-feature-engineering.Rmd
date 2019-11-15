@@ -1,0 +1,47 @@
+---
+output:
+  html: default
+  html_document: default
+---
+# Manual Feature Engineering:
+
+For improving accuracy of the model, we need to include information from other data frames as much as possible. We will include features from Bureau and Bureau Balance data. Manual feature engineering is a tedious process and often rely on domain specific knowledge. Since we have limited knowledge in credit underwriting, we will try to collect as much data as possible as later do feature selection to filter out important variables.
+The information we plan to include from other tables are.
+
+1.	Counts of clients’ previous loan as per bureau record.
+
+2.	Mean, max, minimum, sum for days_credit , days_overdue etc.
+
+```{r}
+library(dplyr)
+```
+
+```{r bureau}
+bureau <- read.csv("Data/bureau.csv")
+head(bureau)
+```
+
+```{r bureau-balance}
+bureau_balance <- read.csv("Data/bureau_balance.csv")
+#head(bureau_balance)
+```
+
+
+```{r}
+library(reshape2)
+# aggregating Bureau Balance table
+bureau_balance_aggr <- bureau_balance %>% group_by(SK_ID_BUREAU) %>%
+   summarize(MONTHS_BALANCE = min(MONTHS_BALANCE))
+bureau_status_grp <- bureau_balance %>% group_by(SK_ID_BUREAU, STATUS) %>%
+  summarise(count = n())
+
+bureau_status_grp <- dcast(bureau_status_grp, SK_ID_BUREAU~STATUS, fill=0)
+bureau_status_grp <- bureau_status_grp %>% mutate(Status_X = X, Status_C= C, Status_0 = `0`)  %>%
+   select(SK_ID_BUREAU, Status_X, Status_C, Status_0)
+ 
+bureau_balance_aggr <- bureau_balance_aggr %>% left_join(bureau_status_grp, by= "SK_ID_BUREAU")
+bureau_balance_aggr
+
+```
+
+

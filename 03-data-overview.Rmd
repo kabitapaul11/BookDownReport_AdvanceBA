@@ -1,0 +1,7 @@
+# Data Overview
+
+There are mainly seven tables among which Application (train and test) is the master table. The entities of these dataset are deidentified (replaced with ID) for security reasons. The application table contains records for each loan application with Home Credit. Other tables contain records of clients’ previous loan application with Home credit, other credits which are reported to credit bureau and instalment payment records.
+In below table, we have mentioned some basic overview of data tables that are available to us.
+
+![](Images/table.png)
+

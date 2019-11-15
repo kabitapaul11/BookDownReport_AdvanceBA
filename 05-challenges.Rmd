@@ -1,0 +1,16 @@
+# Challenges:
+
+## Too many attributes: 
+
+The application table consists of 122 variables. We need to carefully choose variables that are needed for analysis removing less important variables in order to avoid noise while not losing valuable information. In order to avoid this problem, we can do feature selection.
+
+
+## Dealing with Missing values:
+
+There are high percentage of missing values for few attributes. There are many ways to handle missing values. Most common methods are dropping records with missing values (when percentage of missing value is low). One other method is to discard columns with high number of missing values. Missing values can be handled by Imputation techniques as well. In imputation, missing values for categorical variables are replaced by either most frequently used category or a considered as third category. At this earlier stage, we will prefer imputation over dropping in order to avoid loss of information.
+
+
+## Imbalanced Data:  
+
+The application dataset has less than 10% values for TARGET category 1. The rest of the dataset has TARGET 0. Machine learning algorithms are highly biased with the categories with high number of observations. To overcome this situation, we want to use sampling techniques.
+

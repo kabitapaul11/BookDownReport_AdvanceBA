@@ -1,0 +1,11 @@
+# Methodology:
+
+The application train table has TARGET column, which is missing in application test. We need to predict TARGET column (dependent variable) with the help of machine learning. This is direct case of supervised classification problem.
+
+## Supervised: 
+
+Some observations are labeled with TARGET category 0 or 1. We need to predict the TARGET column based on the predictor variables. Model is open for continuous improvement with the help of validation techniques.
+
+## Classification:  
+
+The dependent variable (TARGET) is categorical with two levels o and 1. Through model, entire population of dataset will be labeled as either class 0 or class 1 based on predictor variables.
