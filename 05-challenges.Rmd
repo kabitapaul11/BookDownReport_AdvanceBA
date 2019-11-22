@@ -14,3 +14,7 @@ There are high percentage of missing values for few attributes. There are many w
 
 The application dataset has less than 10% values for TARGET category 1. The rest of the dataset has TARGET 0. Machine learning algorithms are highly biased with the categories with high number of observations. To overcome this situation, we want to use sampling techniques.
 
+
+# Issues while Joining
+
+Tables which were supposed to be joined using the common attribute SK-ID-CURR couldnot be joined as there were many IDs mismatch i.e., IDs present in one table are not available in the other tables.
